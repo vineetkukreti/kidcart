@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KidCart - Everything They Need, From Crayons to Campus</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛒</text></svg>">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="/" class="logo">
+            <span class="logo-icon">🛒</span>
+            <span class="logo-text">Kid<span class="logo-accent">Cart</span></span>
+        </a>
+        <div class="search-bar">
+            <span class="search-icon">🔍</span>
+            <input type="text" placeholder="Search for stationery, books, bags, clothing..." id="searchInput">
+        </div>
+        <div class="nav-actions">
+            <button class="nav-btn" title="Wishlist">♡</button>
+            <button class="nav-btn cart-btn" title="Cart" onclick="openCart()">
+                🛒 <span class="cart-badge" id="cartBadge">0</span>
+            </button>
+            <button class="nav-btn user-btn" title="Account" onclick="openAuth()">👤</button>
+        </div>
+    </div>
+    <div class="nav-categories">
+        <a href="#" class="nav-cat-link active">All</a>
+        <a href="#" class="nav-cat-link" onclick="filterCategory('stationery')">Stationery</a>
+        <a href="#" class="nav-cat-link" onclick="filterCategory('books')">Books</a>
+        <a href="#" class="nav-cat-link" onclick="filterCategory('bags')">Bags</a>
+        <a href="#" class="nav-cat-link" onclick="filterCategory('clothing')">Clothing</a>
+        <a href="#" class="nav-cat-link" onclick="filterCategory('fashion')">Fashion</a>
+        <a href="#" class="nav-cat-link" onclick="filterCategory('gifts')">Gifts</a>
+    </div>
+</nav>
+
+<!-- HERO BANNER -->
+<section class="hero">
+    <div class="hero-content">
+        <span class="hero-badge">🎒 Back-to-School Season is Here!</span>
+        <h1 class="hero-title">Everything They Need,<br>From <span class="gradient-text">Crayons</span> to <span class="gradient-text">Campus</span></h1>
+        <p class="hero-subtitle">Shop curated products for ages 3 to college. Quality items that grow with them.</p>
+        <p class="hero-offer">Up to <strong>40% off</strong> on school essentials!</p>
+        <div class="hero-actions">
+            <button class="btn btn-primary btn-lg" onclick="scrollTo('#trending')">Shop Now</button>
+            <button class="btn btn-outline btn-lg" onclick="scrollTo('#categories')">Browse Categories</button>
+        </div>
+        <div class="hero-stats">
+            <div class="stat"><strong>10,000+</strong><span>Products</span></div>
+            <div class="stat"><strong>50,000+</strong><span>Happy Kids</span></div>
+            <div class="stat"><strong>4.8★</strong><span>Rating</span></div>
+        </div>
+    </div>
+    <div class="hero-visual">
+        <div class="hero-circle"></div>
+        <div class="floating-item fi-1">📚</div>
+        <div class="floating-item fi-2">🎨</div>
+        <div class="floating-item fi-3">🎒</div>
+        <div class="floating-item fi-4">✏️</div>
+        <div class="floating-item fi-5">👗</div>
+    </div>
+</section>
+
+<!-- SHOP BY AGE -->
+<section class="section" id="age-groups">
+    <h2 class="section-title">Shop by Age</h2>
+    <p class="section-subtitle">Find the perfect products for every stage</p>
+    <div class="age-nav">
+        <div class="age-card age-toddler" onclick="filterAge('toddler')">
+            <div class="age-icon">🧸</div>
+            <h3>Toddler</h3>
+            <span>Ages 3-5</span>
+        </div>
+        <div class="age-card age-child" onclick="filterAge('child')">
+            <div class="age-icon">🎨</div>
+            <h3>Child</h3>
+            <span>Ages 6-10</span>
+        </div>
+        <div class="age-card age-tween" onclick="filterAge('tween')">
+            <div class="age-icon">📱</div>
+            <h3>Tween</h3>
+            <span>Ages 11-13</span>
+        </div>
+        <div class="age-card age-teen" onclick="filterAge('teen')">
+            <div class="age-icon">🎧</div>
+            <h3>Teen</h3>
+            <span>Ages 14-17</span>
+        </div>
+        <div class="age-card age-college" onclick="filterAge('college')">
+            <div class="age-icon">🎓</div>
+            <h3>College</h3>
+            <span>Ages 18-22</span>
+        </div>
+    </div>
+</section>
+
+<!-- TRENDING PRODUCTS -->
+<section class="section section-cream" id="trending">
+    <div class="section-header">
+        <div>
+            <h2 class="section-title">Trending Now 🔥</h2>
+            <p class="section-subtitle">Most loved by students this week</p>
+        </div>
+        <a href="#" class="see-all">See All →</a>
+    </div>
+    <div class="product-grid" id="trendingGrid">
+        <!-- Populated by JS -->
+    </div>
+</section>
+
+<!-- CATEGORIES -->
+<section class="section" id="categories">
+    <h2 class="section-title">Browse Categories</h2>
+    <p class="section-subtitle">Everything they need, all in one place</p>
+    <div class="category-grid">
+        <div class="category-tile cat-stationery" onclick="filterCategory('stationery')">
+            <div class="cat-icon">✏️</div>
+            <h3>Stationery</h3>
+            <span>240+ items</span>
+        </div>
+        <div class="category-tile cat-books" onclick="filterCategory('books')">
+            <div class="cat-icon">📚</div>
+            <h3>Books</h3>
+            <span>520+ items</span>
+        </div>
+        <div class="category-tile cat-bags" onclick="filterCategory('bags')">
+            <div class="cat-icon">🎒</div>
+            <h3>Bags</h3>
+            <span>180+ items</span>
+        </div>
+        <div class="category-tile cat-clothing" onclick="filterCategory('clothing')">
+            <div class="cat-icon">👕</div>
+            <h3>Clothing</h3>
+            <span>350+ items</span>
+        </div>
+        <div class="category-tile cat-fashion" onclick="filterCategory('fashion')">
+            <div class="cat-icon">👗</div>
+            <h3>Fashion</h3>
+            <span>290+ items</span>
+        </div>
+        <div class="category-tile cat-gifts" onclick="filterCategory('gifts')">
+            <div class="cat-icon">🎁</div>
+            <h3>Gifts</h3>
+            <span>160+ items</span>
+        </div>
+    </div>
+</section>
+
+<!-- NEW ARRIVALS -->
+<section class="section section-cream" id="new-arrivals">
+    <div class="section-header">
+        <div>
+            <span class="badge-new">Just Dropped ✨</span>
+            <h2 class="section-title">New Arrivals</h2>
+        </div>
+        <a href="#" class="see-all">See All →</a>
+    </div>
+    <div class="product-grid" id="newArrivalsGrid">
+        <!-- Populated by JS -->
+    </div>
+</section>
+
+<!-- SPECIAL OFFER BANNER -->
+<section class="promo-banner">
+    <div class="promo-content">
+        <h2>🎉 Student Discount: Extra 15% Off!</h2>
+        <p>Verify with your school email and save on every order</p>
+        <button class="btn btn-primary btn-lg">Get Student Discount</button>
+    </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section" id="testimonials">
+    <h2 class="section-title">What Parents & Students Say</h2>
+    <p class="section-subtitle">Trusted by 50,000+ families across India</p>
+    <div class="testimonial-grid">
+        <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p>"KidCart made back-to-school shopping so easy! Found everything for all three kids in one place. The age-based browsing is genius."</p>
+            <div class="testimonial-author">
+                <div class="author-avatar">SM</div>
+                <div>
+                    <strong>Sarah M.</strong>
+                    <span>Mom of 3</span>
+                </div>
+            </div>
+        </div>
+        <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p>"Finally an online store that gets college students. Clean designs, affordable prices, and the student discount is amazing!"</p>
+            <div class="testimonial-author">
+                <div class="author-avatar">JT</div>
+                <div>
+                    <strong>Jake T.</strong>
+                    <span>College Sophomore</span>
+                </div>
+            </div>
+        </div>
+        <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p>"My daughter loves picking out her own school supplies on KidCart. The interface is so kid-friendly, she can browse on her own!"</p>
+            <div class="testimonial-author">
+                <div class="author-avatar">ML</div>
+                <div>
+                    <strong>Maria L.</strong>
+                    <span>Mom of 2</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-brand">
+            <div class="logo">
+                <span class="logo-icon">🛒</span>
+                <span class="logo-text" style="color:white">Kid<span class="logo-accent">Cart</span></span>
+            </div>
+            <p>Everything they need, from crayons to campus. Quality products for every age, every stage.</p>
+            <div class="social-icons">
+                <a href="#">📘</a>
+                <a href="#">📸</a>
+                <a href="#">🐦</a>
+                <a href="#">📺</a>
+            </div>
+        </div>
+        <div class="footer-links">
+            <h4>Company</h4>
+            <a href="#">About Us</a>
+            <a href="#">Careers</a>
+            <a href="#">Blog</a>
+            <a href="#">Press</a>
+        </div>
+        <div class="footer-links">
+            <h4>Support</h4>
+            <a href="#">Help Center</a>
+            <a href="#">Shipping Info</a>
+            <a href="#">Returns</a>
+            <a href="#">Contact Us</a>
+        </div>
+        <div class="footer-links">
+            <h4>Shop by Age</h4>
+            <a href="#">Toddler (3-5)</a>
+            <a href="#">Child (6-10)</a>
+            <a href="#">Tween (11-13)</a>
+            <a href="#">Teen (14-17)</a>
+            <a href="#">College (18-22)</a>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 KidCart. All rights reserved.</p>
+        <div class="payment-badges">
+            <span>💳 Visa</span>
+            <span>💳 Mastercard</span>
+            <span>💳 Amex</span>
+            <span>💳 PayPal</span>
+            <span>💳 UPI</span>
+        </div>
+    </div>
+</footer>
+
+<!-- CART SIDEBAR -->
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+<div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+        <h3>🛒 Your Cart</h3>
+        <button class="close-btn" onclick="closeCart()">✕</button>
+    </div>
+    <div class="cart-items" id="cartItems">
+        <div class="empty-cart">
+            <span class="empty-icon">🛒</span>
+            <p>Your cart is empty</p>
+            <button class="btn btn-primary" onclick="closeCart()">Start Shopping</button>
+        </div>
+    </div>
+    <div class="cart-footer" id="cartFooter" style="display:none">
+        <div class="cart-total">
+            <span>Total</span>
+            <strong id="cartTotal">₹0</strong>
+        </div>
+        <button class="btn btn-primary btn-block">Proceed to Checkout</button>
+        <p class="free-shipping-msg">🚚 Free shipping on orders above ₹499</p>
+    </div>
+</div>
+
+<!-- AUTH MODAL -->
+<div class="modal-overlay" id="authOverlay" onclick="closeAuth()"></div>
+<div class="auth-modal" id="authModal">
+    <button class="close-btn" onclick="closeAuth()">✕</button>
+    <div class="auth-tabs">
+        <button class="auth-tab active" onclick="switchTab('login')">Login</button>
+        <button class="auth-tab" onclick="switchTab('register')">Register</button>
+    </div>
+    <form id="loginForm" class="auth-form">
+        <h3>Welcome back! 👋</h3>
+        <div class="form-group">
+            <label>Email</label>
+            <input type="email" placeholder="your@email.com" required>
+        </div>
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" placeholder="Enter password" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Login</button>
+        <div class="divider"><span>or</span></div>
+        <button type="button" class="btn btn-google btn-block">🔵 Continue with Google</button>
+    </form>
+    <form id="registerForm" class="auth-form" style="display:none">
+        <h3>Create Account ✨</h3>
+        <div class="form-row">
+            <div class="form-group">
+                <label>First Name</label>
+                <input type="text" placeholder="First name" required>
+            </div>
+            <div class="form-group">
+                <label>Last Name</label>
+                <input type="text" placeholder="Last name" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Email</label>
+            <input type="email" placeholder="your@email.com" required>
+        </div>
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" placeholder="Min 8 characters" required>
+        </div>
+        <div class="form-group">
+            <label>I am a...</label>
+            <select>
+                <option>Student</option>
+                <option>Parent</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Create Account</button>
+    </form>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script src="app.js"></script>
+</body>
+</html>

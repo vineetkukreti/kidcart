@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STEM Building Blocks (150 pcs) - KidCart</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="v2-styles.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛒</text></svg>">
+</head>
+<body>
+
+<!-- TOP UTILITY BAR -->
+<div class="v2-top-bar">
+    <div class="v2-flex v2-gap-20">
+        <span>Free shipping on orders over Rs 999</span>
+        <a href="#">Track Order</a>
+    </div>
+    <div class="v2-flex v2-gap-20">
+        <a href="#">Help</a>
+        <a href="#">Store Locator</a>
+    </div>
+</div>
+
+<!-- NAV -->
+<nav class="v2-nav">
+    <div class="v2-nav-logo">
+        <i data-lucide="shopping-cart" class="v2-icon"></i>
+        <span>KidCart</span>
+    </div>
+
+    <div class="v2-nav-links">
+        <a href="#">Shop by Age</a>
+        <a href="v2-product-listing.html" class="active">Kids (6-10)</a>
+        <a href="#">Brands</a>
+        <a href="#" class="v2-deal">Deals</a>
+    </div>
+
+    <div class="v2-nav-search">
+        <i data-lucide="search" class="v2-icon v2-icon-sm" style="color: var(--v2-text-light);"></i>
+        <input type="text" placeholder="Search in Kids (Ages 6-10)...">
+    </div>
+
+    <div class="v2-nav-icons">
+        <button class="v2-nav-icon">
+            <i data-lucide="heart" class="v2-icon"></i>
+            <span class="v2-nav-badge">3</span>
+        </button>
+        <button class="v2-nav-icon">
+            <i data-lucide="shopping-bag" class="v2-icon"></i>
+            <span class="v2-nav-badge">2</span>
+        </button>
+        <div class="v2-user-avatar">
+            <div class="avatar" style="background: var(--v2-primary); border-radius: 14px; width: 28px; height: 28px;"></div>
+            <span class="name">Priya</span>
+        </div>
+    </div>
+</nav>
+
+<!-- BREADCRUMB -->
+<div class="v2-breadcrumb">
+    <a href="#">Home</a>
+    <span class="sep">/</span>
+    <a href="v2-product-listing.html">Kids (6-10)</a>
+    <span class="sep">/</span>
+    <span class="current">STEM Building Blocks</span>
+</div>
+
+<!-- MAIN: IMAGES + DETAIL -->
+<div class="v2-pdp-main">
+    <!-- LEFT: Product Images -->
+    <div class="v2-pdp-images">
+        <div class="v2-pdp-main-img" id="mainImage">
+            🧩
+        </div>
+        <div class="v2-pdp-thumbs">
+            <div class="v2-pdp-thumb active" data-index="0" onclick="selectThumb(this)">🧩</div>
+            <div class="v2-pdp-thumb" data-index="1" onclick="selectThumb(this)">🧱</div>
+            <div class="v2-pdp-thumb" data-index="2" onclick="selectThumb(this)">📐</div>
+            <div class="v2-pdp-thumb" data-index="3" onclick="selectThumb(this)">📦</div>
+        </div>
+    </div>
+
+    <!-- RIGHT: Product Info -->
+    <div class="v2-pdp-info">
+        <!-- Age Badge -->
+        <div class="v2-pdp-age-badge">
+            Ages 6-10 &middot; Educational &middot; STEM
+        </div>
+
+        <!-- Title -->
+        <h1>STEM Building Blocks (150 pcs)</h1>
+
+        <!-- Description -->
+        <p class="v2-pdp-desc">
+            Educational building blocks for future engineers. This 150-piece STEM set encourages creativity,
+            spatial thinking, and problem-solving skills. Compatible with major block brands and includes
+            a project guide with 20 build ideas.
+        </p>
+
+        <!-- Rating -->
+        <div class="v2-pdp-rating">
+            <span class="stars">&#11088;&#11088;&#11088;&#11088;&#11088;</span>
+            <span>4.9 (345 reviews)</span>
+        </div>
+
+        <!-- Price -->
+        <div class="v2-pdp-price">
+            <span class="current">&#8377;1,499</span>
+            <span class="original">&#8377;1,999</span>
+            <span class="save">Save 25%</span>
+        </div>
+
+        <div class="v2-pdp-divider"></div>
+
+        <!-- Choose for which child -->
+        <div class="v2-child-selector">
+            <h4>Choose for which child</h4>
+            <div class="v2-child-cards">
+                <div class="v2-child-card active" data-child="emma" onclick="selectChild(this)">
+                    <div class="v2-child-avatar" style="background: var(--v2-primary);"></div>
+                    <div>
+                        <div class="name">Emma</div>
+                        <div class="detail">Age 8 &middot; Size 7-8</div>
+                    </div>
+                </div>
+                <div class="v2-child-card" data-child="liam" onclick="selectChild(this)">
+                    <div class="v2-child-avatar" style="background: var(--v2-indigo);"></div>
+                    <div>
+                        <div class="name">Liam</div>
+                        <div class="detail">Age 5 &middot; Size 4-5</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTAs -->
+        <div class="v2-pdp-ctas">
+            <button class="v2-btn v2-btn-primary v2-btn-block v2-btn-lg" id="addToCartBtn" onclick="addToCart()">
+                <i data-lucide="shopping-bag" class="v2-btn-icon"></i>
+                Add to Cart
+            </button>
+            <button class="v2-btn v2-btn-dark v2-btn-block v2-btn-lg" onclick="buyNow()">
+                Buy Now
+            </button>
+        </div>
+
+        <!-- Secondary Actions -->
+        <div class="v2-pdp-secondary">
+            <a href="#" onclick="event.preventDefault(); toggleWishlist();">
+                <i data-lucide="heart" class="v2-icon v2-icon-sm"></i>
+                Add to Wishlist
+            </a>
+            <a href="#" onclick="event.preventDefault(); shareProduct();">
+                <i data-lucide="share-2" class="v2-icon v2-icon-sm"></i>
+                Share with Family
+            </a>
+        </div>
+
+        <div class="v2-pdp-divider"></div>
+
+        <!-- Parent Info -->
+        <div class="v2-parent-info">
+            <h4>Parent Info</h4>
+            <div class="v2-parent-feat">
+                <i data-lucide="shield-check" class="v2-icon" style="color: var(--v2-green);"></i>
+                <span>Safety tested &amp; certified for ages 6+</span>
+            </div>
+            <div class="v2-parent-feat">
+                <i data-lucide="truck" class="v2-icon" style="color: var(--v2-indigo);"></i>
+                <span>Free shipping on orders over Rs 999</span>
+            </div>
+            <div class="v2-parent-feat">
+                <i data-lucide="refresh-cw" class="v2-icon" style="color: var(--v2-amber);"></i>
+                <span>30-day hassle-free returns</span>
+            </div>
+            <div class="v2-parent-feat">
+                <i data-lucide="gift" class="v2-icon" style="color: var(--v2-primary);"></i>
+                <span>Gift wrap available at checkout</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="v2-footer">
+    <div class="v2-footer-top">
+        <div class="v2-footer-brand">
+            <div class="logo">
+                <i data-lucide="shopping-cart" class="v2-icon" style="color: var(--v2-primary);"></i>
+                <span>KidCart</span>
+            </div>
+            <p>India's most trusted store for children's products. Quality items from ages 3 to college, all in one place.</p>
+        </div>
+        <div class="v2-footer-col">
+            <h4>Shop</h4>
+            <a href="#">Toddlers (3-5)</a>
+            <a href="#">Kids (6-10)</a>
+            <a href="#">Tweens (11-14)</a>
+            <a href="#">Teens (15-18)</a>
+            <a href="#">College (18+)</a>
+        </div>
+        <div class="v2-footer-col">
+            <h4>Support</h4>
+            <a href="#">Help Center</a>
+            <a href="#">Shipping Info</a>
+            <a href="#">Returns</a>
+            <a href="#">Contact Us</a>
+        </div>
+        <div class="v2-footer-col">
+            <h4>Company</h4>
+            <a href="#">About KidCart</a>
+            <a href="#">Safety Promise</a>
+            <a href="#">Careers</a>
+            <a href="#">Blog</a>
+        </div>
+    </div>
+    <div class="v2-footer-divider"></div>
+    <div class="v2-footer-bottom">
+        <p>&copy; 2026 KidCart. All rights reserved.</p>
+        <div class="v2-footer-payments">
+            <span>Visa</span>
+            <span>Mastercard</span>
+            <span>UPI</span>
+            <span>PayTM</span>
+        </div>
+    </div>
+</footer>
+
+<script>
+// Thumbnail emojis for the main image swap
+const thumbEmojis = ['🧩', '🧱', '📐', '📦'];
+
+// Thumbnail selection
+function selectThumb(el) {
+    document.querySelectorAll('.v2-pdp-thumb').forEach(t => t.classList.remove('active'));
+    el.classList.add('active');
+    const index = parseInt(el.dataset.index);
+    document.getElementById('mainImage').textContent = thumbEmojis[index];
+}
+
+// Child card selection
+function selectChild(el) {
+    document.querySelectorAll('.v2-child-card').forEach(c => c.classList.remove('active'));
+    el.classList.add('active');
+}
+
+// Add to Cart
+function addToCart() {
+    const btn = document.getElementById('addToCartBtn');
+    btn.innerHTML = '<i data-lucide="check" class="v2-btn-icon"></i> Added to Cart!';
+    btn.style.background = 'var(--v2-green)';
+    if (window.lucide) lucide.createIcons();
+    setTimeout(() => {
+        btn.innerHTML = '<i data-lucide="shopping-bag" class="v2-btn-icon"></i> Add to Cart';
+        btn.style.background = '';
+        if (window.lucide) lucide.createIcons();
+    }, 2000);
+}
+
+// Buy Now
+function buyNow() {
+    alert('Proceeding to checkout for STEM Building Blocks (150 pcs) - Rs 1,499');
+}
+
+// Wishlist toggle
+function toggleWishlist() {
+    const link = event.currentTarget;
+    if (link.dataset.wishlisted === 'true') {
+        link.innerHTML = '<i data-lucide="heart" class="v2-icon v2-icon-sm"></i> Add to Wishlist';
+        link.dataset.wishlisted = 'false';
+    } else {
+        link.innerHTML = '<i data-lucide="heart" class="v2-icon v2-icon-sm" style="color: var(--v2-primary); fill: var(--v2-primary);"></i> Wishlisted';
+        link.dataset.wishlisted = 'true';
+    }
+    if (window.lucide) lucide.createIcons();
+}
+
+// Share
+function shareProduct() {
+    if (navigator.share) {
+        navigator.share({
+            title: 'STEM Building Blocks (150 pcs) - KidCart',
+            text: 'Check out this STEM Building Blocks set on KidCart!',
+            url: window.location.href
+        });
+    } else {
+        alert('Link copied! Share this product with your family.');
+    }
+}
+</script>
+
+<!-- Lucide Icons CDN -->
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>lucide.createIcons();</script>
+
+</body>
+</html>

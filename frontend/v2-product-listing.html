@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kids (Ages 6-10) - KidCart</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="v2-styles.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🛒</text></svg>">
+</head>
+<body>
+
+<!-- TOP UTILITY BAR -->
+<div class="v2-top-bar">
+    <div class="v2-flex v2-gap-20">
+        <span>Free shipping on orders over Rs 999</span>
+        <a href="#">Track Order</a>
+    </div>
+    <div class="v2-flex v2-gap-20">
+        <a href="#">Help</a>
+        <a href="#">Store Locator</a>
+    </div>
+</div>
+
+<!-- NAV -->
+<nav class="v2-nav">
+    <div class="v2-nav-logo">
+        <i data-lucide="shopping-cart" class="v2-icon"></i>
+        <span>KidCart</span>
+    </div>
+
+    <div class="v2-nav-links">
+        <a href="#">Shop by Age</a>
+        <a href="#" class="active">Kids (6-10)</a>
+        <a href="#">Brands</a>
+        <a href="#" class="v2-deal">Deals</a>
+    </div>
+
+    <div class="v2-nav-search">
+        <i data-lucide="search" class="v2-icon v2-icon-sm" style="color: var(--v2-text-light);"></i>
+        <input type="text" placeholder="Search in Kids (Ages 6-10)...">
+    </div>
+
+    <div class="v2-nav-icons">
+        <button class="v2-nav-icon">
+            <i data-lucide="heart" class="v2-icon"></i>
+            <span class="v2-nav-badge">3</span>
+        </button>
+        <button class="v2-nav-icon">
+            <i data-lucide="shopping-bag" class="v2-icon"></i>
+            <span class="v2-nav-badge">2</span>
+        </button>
+        <div class="v2-user-avatar">
+            <div class="avatar" style="background: var(--v2-primary); border-radius: 14px; width: 28px; height: 28px;"></div>
+            <span class="name">Priya</span>
+        </div>
+    </div>
+</nav>
+
+<!-- BREADCRUMB -->
+<div class="v2-breadcrumb">
+    <a href="#">Home</a>
+    <span class="sep">/</span>
+    <a href="#">Shop by Age</a>
+    <span class="sep">/</span>
+    <span class="current">Kids (Ages 6-10)</span>
+</div>
+
+<!-- MAIN: SIDEBAR + PRODUCTS -->
+<div class="v2-plp-main">
+    <!-- LEFT SIDEBAR -->
+    <aside class="v2-filter-sidebar">
+        <!-- Age Group Filter -->
+        <div class="v2-filter-group">
+            <h4>Age Group</h4>
+            <label class="v2-filter-option active" data-age="2">
+                <div class="v2-filter-checkbox checked"></div>
+                <span>Kids (6-10)</span>
+            </label>
+            <label class="v2-filter-option" data-age="3">
+                <div class="v2-filter-checkbox"></div>
+                <span>Tweens (11-14)</span>
+            </label>
+            <label class="v2-filter-option" data-age="4">
+                <div class="v2-filter-checkbox"></div>
+                <span>Teens (15-18)</span>
+            </label>
+        </div>
+
+        <!-- Category Filter -->
+        <div class="v2-filter-group">
+            <h4>Category</h4>
+            <a class="v2-filter-link" data-cat="clothing">Clothing</a>
+            <a class="v2-filter-link" data-cat="gifts">Toys & Games</a>
+            <a class="v2-filter-link" data-cat="books">Books</a>
+            <a class="v2-filter-link" data-cat="stationery">School Supplies</a>
+            <a class="v2-filter-link" data-cat="fashion">Electronics</a>
+        </div>
+
+        <!-- Size from Child Profile -->
+        <div class="v2-filter-group">
+            <h4>Size</h4>
+            <div class="v2-child-badge">
+                <span style="width:18px; height:18px; border-radius:9px; background: var(--v2-primary); display:inline-block;"></span>
+                Emma &middot; Size 7-8
+            </div>
+            <div class="v2-size-options" style="margin-top: 8px;">
+                <button class="v2-size-btn" data-size="6">6</button>
+                <button class="v2-size-btn active" data-size="7-8">7-8</button>
+                <button class="v2-size-btn" data-size="9">9</button>
+            </div>
+        </div>
+    </aside>
+
+    <!-- RIGHT PRODUCT AREA -->
+    <div class="v2-product-area">
+        <!-- Header -->
+        <div class="v2-product-header">
+            <div>
+                <h1 class="v2-heading-md">Kids (Ages 6-10)</h1>
+                <p class="subtitle">318 products &middot; Showing items for Emma's size</p>
+            </div>
+            <button class="v2-sort-btn" id="sortBtn">
+                <i data-lucide="arrow-up-down" class="v2-icon v2-icon-sm"></i>
+                Sort by: Recommended
+                <i data-lucide="chevron-down" class="v2-icon v2-icon-sm"></i>
+            </button>
+        </div>
+
+        <!-- Product Grid -->
+        <div class="v2-product-grid cols-3" id="productGrid">
+            <!-- Products will be injected by JS -->
+        </div>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="v2-footer">
+    <div class="v2-footer-top">
+        <div class="v2-footer-brand">
+            <div class="logo">
+                <i data-lucide="shopping-cart" class="v2-icon" style="color: var(--v2-primary);"></i>
+                <span>KidCart</span>
+            </div>
+            <p>India's most trusted store for children's products. Quality items from ages 3 to college, all in one place.</p>
+        </div>
+        <div class="v2-footer-col">
+            <h4>Shop</h4>
+            <a href="#">Toddlers (3-5)</a>
+            <a href="#">Kids (6-10)</a>
+            <a href="#">Tweens (11-14)</a>
+            <a href="#">Teens (15-18)</a>
+            <a href="#">College (18+)</a>
+        </div>
+        <div class="v2-footer-col">
+            <h4>Support</h4>
+            <a href="#">Help Center</a>
+            <a href="#">Shipping Info</a>
+            <a href="#">Returns</a>
+            <a href="#">Contact Us</a>
+        </div>
+        <div class="v2-footer-col">
+            <h4>Company</h4>
+            <a href="#">About KidCart</a>
+            <a href="#">Safety Promise</a>
+            <a href="#">Careers</a>
+            <a href="#">Blog</a>
+        </div>
+    </div>
+    <div class="v2-footer-divider"></div>
+    <div class="v2-footer-bottom">
+        <p>&copy; 2026 KidCart. All rights reserved.</p>
+        <div class="v2-footer-payments">
+            <span>Visa</span>
+            <span>Mastercard</span>
+            <span>UPI</span>
+            <span>PayTM</span>
+        </div>
+    </div>
+</footer>
+
+<!-- PRODUCT DATA -->
+<script>
+const productEmoji = {
+    'STN-PEN': '🖊️', 'STN-NB': '📓', 'STN-ART': '🎨', 'STN-DSK': '📎', 'STN-GEO': '📐',
+    'STN-CAL': '🔢', 'STN-LBL': '🏷️', 'STN-WBD': '📋', 'STN-STK': '⭐',
+    'BK-STR': '📖', 'BK-TXT': '📘', 'BK-REF': '📕',
+    'BAG-SCH': '🎒', 'BAG-LAP': '💼', 'BAG-LUN': '🍱', 'BAG-TFN': '🍱', 'BAG-TOT': '👜',
+    'CLT-UNI': '👔', 'CLT-TEE': '👕', 'CLT-HOD': '🧥', 'CLT-RCT': '🧥', 'CLT-TRK': '👖', 'CLT-JKT': '🧥', 'CLT-COS': '👸',
+    'FSH-WCH': '⌚', 'FSH-SGL': '🕶️', 'FSH-BRC': '📿', 'FSH-WLT': '👛', 'FSH-HAR': '🎀', 'FSH-BTL': '🧴', 'FSH-YGA': '🧘',
+    'GFT-STM': '🧩', 'GFT-SCI': '🔬', 'GFT-PLY': '🪁', 'GFT-SPK': '🔊', 'GFT-LMP': '💡', 'GFT-ARD': '🤖', 'GFT-CHR': '🪑',
+    'GFT-ALF': '🔤', 'GFT-HPH': '🎧', 'GFT-BRD': '🎲', 'GFT-PZL': '🧩'
+};
+
+function getEmoji(sku) {
+    if (!sku) return '📦';
+    const prefix = sku.split('-').slice(0, 2).join('-');
+    return productEmoji[prefix] || '📦';
+}
+
+const allProducts = [
+    { id: '20000000-0000-0000-0000-000000000001', name: 'Rainbow Gel Pen Set (12 Colors)', category: 'Stationery', price: 249, originalPrice: 399, brand: 'Flair', sku: 'STN-PEN-001', ageGroup: 2, rating: 4.7, reviews: 234, isFeatured: true, desc: 'Vibrant 12-color gel pen set for creative kids' },
+    { id: '20000000-0000-0000-0000-000000000005', name: 'Sparkle Glitter Pens (8 Pack)', category: 'Stationery', price: 179, originalPrice: 249, brand: 'Flair', sku: 'STN-PEN-005', ageGroup: 2, rating: 4.5, reviews: 156, desc: 'Glittery gel pens that make writing fun' },
+    { id: '20000000-0000-0000-0000-000000000007', name: 'Unicorn Diary with Lock', category: 'Stationery', price: 399, originalPrice: null, brand: 'Smiggle', sku: 'STN-NB-002', ageGroup: 2, rating: 4.8, reviews: 267, isFeatured: true, desc: 'Secret diary with lock for young dreamers' },
+    { id: '20000000-0000-0000-0000-000000000014', name: 'The Magic Treehouse Collection (Books 1-8)', category: 'Books', price: 1299, originalPrice: 1599, brand: 'Scholastic', sku: 'BK-STR-001', ageGroup: 2, rating: 4.9, reviews: 567, isFeatured: true, desc: 'Bestselling adventure series box set' },
+    { id: '20000000-0000-0000-0000-000000000024', name: 'Superhero Insulated Lunch Bag', category: 'Bags', price: 449, originalPrice: 599, brand: 'Marvel', sku: 'BAG-LUN-001', ageGroup: 2, rating: 4.5, reviews: 167, desc: 'Cool superhero lunch bag for kids' },
+    { id: '20000000-0000-0000-0000-000000000026', name: 'Cotton School Uniform Set', category: 'Clothing', price: 799, originalPrice: 999, brand: 'Gini & Jony', sku: 'CLT-UNI-001', ageGroup: 2, rating: 4.3, reviews: 234, desc: 'Comfortable cotton uniform set for school' },
+    { id: '20000000-0000-0000-0000-000000000031', name: 'Digital Sports Watch (Waterproof)', category: 'Fashion', price: 799, originalPrice: 1199, brand: 'Casio', sku: 'FSH-WCH-001', ageGroup: 2, rating: 4.6, reviews: 234, isFeatured: true, desc: 'Rugged waterproof digital watch for kids' },
+    { id: '20000000-0000-0000-0000-000000000036', name: 'STEM Building Blocks (150 pcs)', category: 'Gifts', price: 1499, originalPrice: 1999, brand: 'Lego Education', sku: 'GFT-STM-001', ageGroup: 2, rating: 4.9, reviews: 345, isFeatured: true, desc: 'Educational building blocks for future engineers' },
+    { id: '20000000-0000-0000-0000-000000000046', name: 'Personalized Name Labels (100 pcs)', category: 'Stationery', price: 299, originalPrice: null, brand: 'Stuck On You', sku: 'STN-LBL-001', ageGroup: 2, rating: 4.5, reviews: 123, desc: 'Custom waterproof labels for school stuff' },
+    { id: '20000000-0000-0000-0000-000000000049', name: 'Tiffin Box Set (Stainless Steel, 3 tier)', category: 'Bags', price: 699, originalPrice: 899, brand: 'Milton', sku: 'BAG-TFN-001', ageGroup: 2, rating: 4.5, reviews: 234, desc: 'Insulated stainless steel lunch box set' },
+    { id: '20000000-0000-0000-0000-000000000057', name: 'Board Games Family Pack (4 Games)', category: 'Gifts', price: 1999, originalPrice: 2799, brand: 'Hasbro', sku: 'GFT-BRD-001', ageGroup: 2, rating: 4.8, reviews: 234, desc: '4 classic board games for family fun' },
+    { id: '20000000-0000-0000-0000-000000000059', name: 'Yoga Mat for Kids (with Poses Print)', category: 'Fashion', price: 599, originalPrice: 799, brand: 'Boldfit', sku: 'FSH-YGA-001', ageGroup: 2, rating: 4.5, reviews: 67, desc: 'Fun yoga mat with printed poses for kids' },
+];
+
+// Active filters
+let activeAgeGroups = new Set([2]);
+
+function generateStars(rating) {
+    const full = Math.floor(rating);
+    const half = rating % 1 >= 0.5 ? 1 : 0;
+    return '★'.repeat(full) + (half ? '½' : '') + '☆'.repeat(5 - full - half);
+}
+
+function renderProducts() {
+    const grid = document.getElementById('productGrid');
+    const filtered = allProducts.filter(p => activeAgeGroups.has(p.ageGroup));
+    const display = filtered.slice(0, 6);
+
+    grid.innerHTML = display.map(product => {
+        const emoji = getEmoji(product.sku);
+        const discount = product.originalPrice
+            ? Math.round((1 - product.price / product.originalPrice) * 100)
+            : 0;
+
+        return `
+        <div class="v2-product-card" onclick="window.location.href='v2-product-detail.html'">
+            <div class="v2-product-img">
+                <span>${emoji}</span>
+                ${discount ? `<div class="badge">-${discount}%</div>` : ''}
+                <button class="wishlist-btn" onclick="event.stopPropagation();">
+                    <i data-lucide="heart" class="v2-icon v2-icon-sm"></i>
+                </button>
+            </div>
+            <div class="v2-product-info">
+                <h3>${product.name}</h3>
+                <p class="desc">${product.desc}</p>
+                <div class="rating">
+                    <span class="stars">${generateStars(product.rating)}</span>
+                    <span>${product.rating} (${product.reviews})</span>
+                </div>
+                <div class="v2-flex v2-gap-8" style="align-items: baseline;">
+                    <span class="price">&#8377;${product.price.toLocaleString('en-IN')}</span>
+                    ${product.originalPrice ? `<span class="original-price">&#8377;${product.originalPrice.toLocaleString('en-IN')}</span>` : ''}
+                </div>
+                <button class="add-cart-btn" onclick="event.stopPropagation(); addToCart('${product.id}')">
+                    Add to Cart
+                </button>
+            </div>
+        </div>`;
+    }).join('');
+
+    // Re-init Lucide icons for newly added elements
+    if (window.lucide) lucide.createIcons();
+}
+
+function addToCart(productId) {
+    const btn = event.currentTarget;
+    btn.textContent = 'Added!';
+    btn.style.background = 'var(--v2-green)';
+    setTimeout(() => {
+        btn.textContent = 'Add to Cart';
+        btn.style.background = '';
+    }, 1500);
+}
+
+// Filter checkbox toggling
+document.querySelectorAll('.v2-filter-option').forEach(option => {
+    option.addEventListener('click', () => {
+        const checkbox = option.querySelector('.v2-filter-checkbox');
+        const ageGroup = parseInt(option.dataset.age);
+
+        checkbox.classList.toggle('checked');
+        option.classList.toggle('active');
+
+        if (activeAgeGroups.has(ageGroup)) {
+            activeAgeGroups.delete(ageGroup);
+        } else {
+            activeAgeGroups.add(ageGroup);
+        }
+
+        renderProducts();
+    });
+});
+
+// Size button toggling
+document.querySelectorAll('.v2-size-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        document.querySelectorAll('.v2-size-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+    });
+});
+
+// Sort dropdown placeholder
+document.getElementById('sortBtn').addEventListener('click', () => {
+    alert('Sort options: Recommended, Price Low-High, Price High-Low, Rating, Newest');
+});
+
+// Initial render
+renderProducts();
+</script>
+
+<!-- Lucide Icons CDN -->
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>lucide.createIcons();</script>
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+## .NET
+bin/
+obj/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+build/
+bld/
+
+## NuGet
+*.nupkg
+**/packages/*
+*.nuget.props
+*.nuget.targets
+
+## VS Code
+.vscode/
+
+## Rider
+.idea/
+
+## User-specific
+*.rsuser
+*.suo
+*.user
+*.sln.docstates
+
+## OS
+.DS_Store
+Thumbs.db
+
+## Logs
+*.log
+
+## Coverage
+coverage/
+TestResults/
+
+## Docker
+docker-compose.override.yml
+
+## Env / secrets
+.env*
+!.env.example
+appsettings.*.local.json
+
+## Local agent tooling
+.claude/
+CLAUDE.md
+
+## JS / misc
+node_modules/
+dist/
+*.db
+*.sqlite

@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KidCart — Parent Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="v2-styles.css">
+    <style>
+        /* ========== DASHBOARD LAYOUT ========== */
+        .dash-body {
+            display: flex;
+            min-height: calc(100vh - 72px);
+        }
+
+        /* ========== SIDEBAR ========== */
+        .dash-sidebar {
+            width: 260px;
+            background: #FFFFFF;
+            border-right: 1px solid var(--v2-border);
+            padding: 24px 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            flex-shrink: 0;
+        }
+        .dash-sidebar-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            border-radius: 12px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--v2-text-muted);
+            cursor: pointer;
+            transition: var(--v2-transition);
+            border: none;
+            background: none;
+            width: 100%;
+            text-align: left;
+        }
+        .dash-sidebar-item:hover {
+            background: var(--v2-bg-soft);
+            color: var(--v2-text-secondary);
+        }
+        .dash-sidebar-item.active {
+            background: #FFF0F0;
+            color: var(--v2-primary);
+            font-weight: 600;
+        }
+        .dash-sidebar-item i {
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+        }
+
+        /* ========== MAIN CONTENT ========== */
+        .dash-main {
+            flex: 1;
+            background: #F6F7F8;
+            padding: 24px 32px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        /* Header */
+        .dash-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+        }
+        .dash-header-text h1 {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--v2-text-primary);
+            margin-bottom: 4px;
+        }
+        .dash-header-text p {
+            font-size: 14px;
+            color: var(--v2-text-muted);
+        }
+        .dash-add-child {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: var(--v2-primary);
+            color: white;
+            border: none;
+            border-radius: var(--v2-radius-md);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--v2-transition);
+        }
+        .dash-add-child:hover {
+            background: var(--v2-primary-dark);
+            transform: translateY(-1px);
+            box-shadow: 0 8px 25px rgba(255,107,107,0.3);
+        }
+
+        /* ========== CHILD CARDS ========== */
+        .dash-children {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+        .dash-child-card {
+            background: white;
+            border-radius: var(--v2-radius-xl);
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            border: 1px solid transparent;
+            box-shadow: var(--v2-shadow-sm);
+        }
+        .dash-child-card.emma { border-color: #FF6B6B20; }
+        .dash-child-card.liam { border-color: #6366F120; }
+
+        .dash-child-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        .dash-child-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: white;
+            flex-shrink: 0;
+        }
+        .dash-child-avatar.coral { background: var(--v2-primary); }
+        .dash-child-avatar.indigo { background: var(--v2-indigo); }
+
+        .dash-child-name {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--v2-text-primary);
+        }
+        .dash-child-meta {
+            font-size: 13px;
+            color: var(--v2-text-muted);
+            margin-top: 2px;
+        }
+
+        /* Stats row */
+        .dash-stats-row {
+            display: flex;
+            gap: 12px;
+        }
+        .dash-stat {
+            flex: 1;
+            padding: 14px 16px;
+            border-radius: var(--v2-radius);
+            text-align: center;
+        }
+        .dash-stat-label {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--v2-text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+        .dash-stat-value {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+        }
+        .dash-stat.size { background: #FFF9F0; }
+        .dash-stat.size .dash-stat-value { color: var(--v2-primary); }
+        .dash-stat.height { background: #F0F4FF; }
+        .dash-stat.height .dash-stat-value { color: var(--v2-indigo); }
+        .dash-stat.weight { background: #F0FFF4; }
+        .dash-stat.weight .dash-stat-value { color: var(--v2-green); }
+
+        /* Growth alert */
+        .dash-growth-alert {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: #FFFBEB;
+            border-radius: var(--v2-radius);
+            padding: 14px 16px;
+        }
+        .dash-growth-alert i {
+            color: #92400E;
+            flex-shrink: 0;
+        }
+        .dash-growth-alert p {
+            font-size: 13px;
+            color: #92400E;
+            line-height: 1.4;
+        }
+
+        /* Action buttons */
+        .dash-child-actions {
+            display: flex;
+            gap: 10px;
+        }
+        .dash-child-actions button {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 10px 16px;
+            background: var(--v2-bg-soft);
+            color: var(--v2-text-secondary);
+            border: none;
+            border-radius: 10px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--v2-transition);
+        }
+        .dash-child-actions button:hover {
+            background: var(--v2-border-mid);
+        }
+        .dash-child-actions button i {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* ========== RECENT ORDERS ========== */
+        .dash-orders-card {
+            background: white;
+            border-radius: var(--v2-radius-xl);
+            padding: 24px;
+            box-shadow: var(--v2-shadow-sm);
+        }
+        .dash-orders-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .dash-orders-header h2 {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--v2-text-primary);
+        }
+        .dash-orders-header a {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--v2-primary);
+            cursor: pointer;
+        }
+        .dash-orders-header a:hover {
+            text-decoration: underline;
+        }
+
+        .dash-order-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px 0;
+            border-bottom: 1px solid var(--v2-border);
+        }
+        .dash-order-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        .dash-order-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        .dash-order-icon i {
+            width: 20px;
+            height: 20px;
+            color: var(--v2-text-secondary);
+        }
+        .dash-order-info {
+            flex: 1;
+        }
+        .dash-order-info h4 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--v2-text-primary);
+            margin-bottom: 2px;
+        }
+        .dash-order-meta {
+            font-size: 12px;
+            color: var(--v2-text-light);
+        }
+        .dash-order-badge {
+            padding: 4px 12px;
+            border-radius: 100px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .dash-order-badge.shipped {
+            background: #F0FFF4;
+            color: var(--v2-green);
+        }
+        .dash-order-badge.processing {
+            background: #FFFBEB;
+            color: #D97706;
+        }
+        .dash-order-badge.delivered {
+            background: #F0FFF4;
+            color: var(--v2-green);
+        }
+
+        /* ========== NAV OVERRIDES FOR DASHBOARD ========== */
+        .dash-nav-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .dash-back-link {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--v2-text-secondary);
+            transition: var(--v2-transition);
+        }
+        .dash-back-link:hover {
+            color: var(--v2-text-primary);
+        }
+        .dash-bell {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--v2-text-secondary);
+            cursor: pointer;
+            transition: var(--v2-transition);
+            position: relative;
+        }
+        .dash-bell:hover {
+            background: var(--v2-bg-soft);
+        }
+        .dash-user-pill {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--v2-bg-soft);
+            border-radius: 100px;
+            padding: 6px 16px 6px 6px;
+        }
+        .dash-user-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--v2-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+        }
+        .dash-user-name {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--v2-text-primary);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ========== NAV ========== -->
+    <nav class="v2-nav">
+        <a href="#" class="v2-nav-logo">
+            <i data-lucide="shopping-bag"></i>
+            <span>KidCart</span>
+        </a>
+        <div class="dash-nav-right">
+            <a href="#" class="dash-back-link">Back to Shop</a>
+            <div class="dash-bell">
+                <i data-lucide="bell"></i>
+            </div>
+            <div class="dash-user-pill">
+                <div class="dash-user-avatar">S</div>
+                <span class="dash-user-name">Sarah M.</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========== DASHBOARD BODY ========== -->
+    <div class="dash-body">
+
+        <!-- Sidebar -->
+        <aside class="dash-sidebar">
+            <button class="dash-sidebar-item active" data-section="children">
+                <i data-lucide="users"></i>
+                My Children
+            </button>
+            <button class="dash-sidebar-item" data-section="orders">
+                <i data-lucide="package"></i>
+                Orders
+            </button>
+            <button class="dash-sidebar-item" data-section="wishlists">
+                <i data-lucide="heart"></i>
+                Wishlists
+            </button>
+            <button class="dash-sidebar-item" data-section="size-tracking">
+                <i data-lucide="ruler"></i>
+                Size Tracking
+            </button>
+            <button class="dash-sidebar-item" data-section="payment">
+                <i data-lucide="credit-card"></i>
+                Payment
+            </button>
+            <button class="dash-sidebar-item" data-section="settings">
+                <i data-lucide="settings"></i>
+                Settings
+            </button>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dash-main">
+
+            <!-- Header Row -->
+            <div class="dash-header">
+                <div class="dash-header-text">
+                    <h1>My Children</h1>
+                    <p>Manage profiles, track growth, and see recommendations</p>
+                </div>
+                <button class="dash-add-child">
+                    <i data-lucide="plus" style="width:16px;height:16px;"></i>
+                    Add Child
+                </button>
+            </div>
+
+            <!-- Child Profile Cards -->
+            <div class="dash-children">
+
+                <!-- Emma's Card -->
+                <div class="dash-child-card emma">
+                    <div class="dash-child-header">
+                        <div class="dash-child-avatar coral">E</div>
+                        <div>
+                            <div class="dash-child-name">Emma</div>
+                            <div class="dash-child-meta">Age 8 &middot; Girl &middot; 2nd Grade</div>
+                        </div>
+                    </div>
+                    <div class="dash-stats-row">
+                        <div class="dash-stat size">
+                            <div class="dash-stat-label">Size</div>
+                            <div class="dash-stat-value">7-8</div>
+                        </div>
+                        <div class="dash-stat height">
+                            <div class="dash-stat-label">Height</div>
+                            <div class="dash-stat-value">52"</div>
+                        </div>
+                        <div class="dash-stat weight">
+                            <div class="dash-stat-label">Weight</div>
+                            <div class="dash-stat-value">55 lb</div>
+                        </div>
+                    </div>
+                    <div class="dash-growth-alert">
+                        <i data-lucide="trending-up" style="width:18px;height:18px;"></i>
+                        <p>Emma grew 1.5" since last update — she may need size 9 soon!</p>
+                    </div>
+                    <div class="dash-child-actions">
+                        <button><i data-lucide="heart"></i> Wishlist (8)</button>
+                        <button><i data-lucide="shopping-bag"></i> Shop for Emma</button>
+                    </div>
+                </div>
+
+                <!-- Liam's Card -->
+                <div class="dash-child-card liam">
+                    <div class="dash-child-header">
+                        <div class="dash-child-avatar indigo">L</div>
+                        <div>
+                            <div class="dash-child-name">Liam</div>
+                            <div class="dash-child-meta">Age 5 &middot; Boy &middot; Kindergarten</div>
+                        </div>
+                    </div>
+                    <div class="dash-stats-row">
+                        <div class="dash-stat size">
+                            <div class="dash-stat-label">Size</div>
+                            <div class="dash-stat-value">4-5</div>
+                        </div>
+                        <div class="dash-stat height">
+                            <div class="dash-stat-label">Height</div>
+                            <div class="dash-stat-value">42"</div>
+                        </div>
+                        <div class="dash-stat weight">
+                            <div class="dash-stat-label">Weight</div>
+                            <div class="dash-stat-value">40 lb</div>
+                        </div>
+                    </div>
+                    <div class="dash-child-actions">
+                        <button><i data-lucide="heart"></i> Wishlist (3)</button>
+                        <button><i data-lucide="shopping-bag"></i> Shop for Liam</button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Recent Orders -->
+            <div class="dash-orders-card">
+                <div class="dash-orders-header">
+                    <h2>Recent Orders</h2>
+                    <a href="#">View All</a>
+                </div>
+
+                <div class="dash-order-item">
+                    <div class="dash-order-icon" style="background: #FFF9F0;">
+                        <i data-lucide="package"></i>
+                    </div>
+                    <div class="dash-order-info">
+                        <h4>Rainbow Art Set + 2 items</h4>
+                        <span class="dash-order-meta">For Emma &middot; Mar 25</span>
+                    </div>
+                    <span class="dash-order-badge shipped">Shipped</span>
+                </div>
+
+                <div class="dash-order-item">
+                    <div class="dash-order-icon" style="background: #F0F4FF;">
+                        <i data-lucide="package"></i>
+                    </div>
+                    <div class="dash-order-info">
+                        <h4>STEM Robot Kit</h4>
+                        <span class="dash-order-meta">For Emma &middot; Mar 22</span>
+                    </div>
+                    <span class="dash-order-badge processing">Processing</span>
+                </div>
+
+                <div class="dash-order-item">
+                    <div class="dash-order-icon" style="background: #FFF0F0;">
+                        <i data-lucide="package"></i>
+                    </div>
+                    <div class="dash-order-info">
+                        <h4>Kids Sneakers Size 4-5</h4>
+                        <span class="dash-order-meta">For Liam &middot; Mar 18</span>
+                    </div>
+                    <span class="dash-order-badge delivered">Delivered</span>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- ========== SCRIPTS ========== -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Sidebar active state toggle
+        const sidebarItems = document.querySelectorAll('.dash-sidebar-item');
+        sidebarItems.forEach(item => {
+            item.addEventListener('click', () => {
+                sidebarItems.forEach(i => i.classList.remove('active'));
+                item.classList.add('active');
+            });
+        });
+    </script>
+
+</body>
+</html>

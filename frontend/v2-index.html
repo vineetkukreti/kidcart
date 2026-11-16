@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KidCart — Shopping Made Simple for Every Age</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="v2-styles.css">
+</head>
+<body>
+
+<!-- ========== 1. TOP UTILITY BAR ========== -->
+<div class="v2-top-bar">
+    <span>Free shipping on orders $50+</span>
+    <div class="v2-flex v2-gap-16">
+        <a href="#">Help</a>
+        <span>|</span>
+        <a href="#">Track Order</a>
+        <span>|</span>
+        <a href="#">Store Locator</a>
+    </div>
+</div>
+
+<!-- ========== 2. MAIN NAV ========== -->
+<nav class="v2-nav">
+    <a href="#" class="v2-nav-logo">
+        <i data-lucide="shopping-bag" class="v2-icon-lg"></i>
+        <span>KidCart</span>
+    </a>
+    <div class="v2-nav-links">
+        <a href="#">Shop by Age</a>
+        <a href="#">Categories</a>
+        <a href="#" class="v2-deal">Deals</a>
+        <a href="#">Back to School</a>
+        <a href="#">Gift Guide</a>
+    </div>
+    <div class="v2-nav-search">
+        <i data-lucide="search" class="v2-icon-sm"></i>
+        <input type="text" placeholder="Search toys, books, clothes...">
+    </div>
+    <div class="v2-nav-icons">
+        <button class="v2-nav-icon" aria-label="Wishlist">
+            <i data-lucide="heart" class="v2-icon"></i>
+        </button>
+        <button class="v2-nav-icon" aria-label="Cart">
+            <i data-lucide="shopping-cart" class="v2-icon"></i>
+            <span class="v2-nav-badge">3</span>
+        </button>
+        <button class="v2-nav-icon" aria-label="Account">
+            <i data-lucide="user" class="v2-icon"></i>
+        </button>
+    </div>
+</nav>
+
+<!-- ========== 3. USER TYPE SWITCHER ========== -->
+<div class="v2-user-switcher">
+    <button class="v2-user-tab active" data-type="parent">
+        <i data-lucide="shield-check" class="v2-icon-sm"></i>
+        I'm a Parent
+    </button>
+    <button class="v2-user-tab" data-type="student">
+        <i data-lucide="graduation-cap" class="v2-icon-sm"></i>
+        I'm a Student
+    </button>
+    <button class="v2-user-tab" data-type="kid">
+        <i data-lucide="smile" class="v2-icon-sm"></i>
+        I'm a Kid
+    </button>
+</div>
+
+<!-- ========== 4. HERO SECTION ========== -->
+<section class="v2-hero">
+    <div class="v2-hero-content">
+        <div class="v2-hero-badge">
+            <i data-lucide="star" class="v2-icon-sm"></i>
+            Trusted by 50,000+ Parents
+        </div>
+        <h1 class="v2-heading-xl">Shopping Made Simple for Every Age</h1>
+        <p>From toddler essentials to college must-haves, find age-appropriate products curated with care for children aged 3 to 22.</p>
+        <div class="v2-hero-ctas">
+            <a href="#" class="v2-btn v2-btn-white v2-btn-lg">
+                <i data-lucide="shopping-bag" class="v2-btn-icon"></i>
+                Start Shopping
+            </a>
+            <a href="#" class="v2-btn v2-btn-outline v2-btn-lg">
+                <i data-lucide="ruler" class="v2-btn-icon"></i>
+                Size Guide
+            </a>
+        </div>
+    </div>
+    <div class="v2-hero-right">
+        <div class="v2-trust-card">
+            <div class="v2-trust-item">
+                <div class="v2-trust-icon" style="background: #FFF0F0;">
+                    <i data-lucide="trending-up" class="v2-icon-sm" style="color: var(--v2-primary);"></i>
+                </div>
+                <div>
+                    <h4>Growth Tracking</h4>
+                    <p>Track sizes as your child grows</p>
+                </div>
+            </div>
+            <div class="v2-trust-item">
+                <div class="v2-trust-icon" style="background: #F0F4FF;">
+                    <i data-lucide="shield" class="v2-icon-sm" style="color: var(--v2-indigo);"></i>
+                </div>
+                <div>
+                    <h4>Child-Safe Shopping</h4>
+                    <p>COPPA compliant & age-verified</p>
+                </div>
+            </div>
+            <div class="v2-trust-item">
+                <div class="v2-trust-icon" style="background: #F0FFF4;">
+                    <i data-lucide="users" class="v2-icon-sm" style="color: var(--v2-green);"></i>
+                </div>
+                <div>
+                    <h4>Multi-Child Profiles</h4>
+                    <p>Manage shopping for all your kids</p>
+                </div>
+            </div>
+        </div>
+        <div class="v2-hero-stats">
+            <div class="v2-hero-stat">
+                <strong>50K+</strong>
+                <span>Parents</span>
+            </div>
+            <div class="v2-hero-stat">
+                <strong>200K+</strong>
+                <span>Products</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== 5. QUICK ACCESS FOR PARENTS ========== -->
+<section class="v2-quick-access v2-section">
+    <div class="v2-container">
+        <div class="v2-section-header">
+            <h2 class="v2-heading-md">Quick Access for Parents</h2>
+            <p>Everything you need, one click away</p>
+        </div>
+        <div class="v2-qa-cards">
+            <div class="v2-qa-card" style="background: #FFF0F0;">
+                <div class="v2-qa-icon" style="background: var(--v2-primary);">
+                    <i data-lucide="baby" class="v2-icon" style="color: white;"></i>
+                </div>
+                <h3>My Children</h3>
+                <p>Manage profiles, sizes & preferences</p>
+            </div>
+            <div class="v2-qa-card" style="background: #FFF8E7;">
+                <div class="v2-qa-icon" style="background: var(--v2-amber);">
+                    <i data-lucide="heart" class="v2-icon" style="color: white;"></i>
+                </div>
+                <h3>Wishlists</h3>
+                <p>Save items for birthdays & occasions</p>
+            </div>
+            <div class="v2-qa-card" style="background: #F0F4FF;">
+                <div class="v2-qa-icon" style="background: var(--v2-indigo);">
+                    <i data-lucide="ruler" class="v2-icon" style="color: white;"></i>
+                </div>
+                <h3>Size Guide</h3>
+                <p>Find the perfect fit every time</p>
+            </div>
+            <div class="v2-qa-card" style="background: #F0FFF4;">
+                <div class="v2-qa-icon" style="background: var(--v2-green);">
+                    <i data-lucide="repeat" class="v2-icon" style="color: white;"></i>
+                </div>
+                <h3>Reorder</h3>
+                <p>Quickly restock favorites & essentials</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== 6. SHOP BY AGE ========== -->
+<section class="v2-age-section v2-section">
+    <div class="v2-container">
+        <div class="v2-section-header">
+            <h2 class="v2-heading-md">Shop by Age</h2>
+            <p>Curated collections for every stage of growing up</p>
+        </div>
+        <div class="v2-age-cards">
+            <div class="v2-age-card">
+                <span class="emoji">&#x1F476;</span>
+                <h3>Toddler</h3>
+                <span class="age-range" style="color: var(--v2-primary);">Ages 3-5</span>
+                <span class="item-count">1,200+ items</span>
+            </div>
+            <div class="v2-age-card">
+                <span class="emoji">&#x1F9D2;</span>
+                <h3>Kids</h3>
+                <span class="age-range" style="color: var(--v2-amber);">Ages 6-10</span>
+                <span class="item-count">3,400+ items</span>
+            </div>
+            <div class="v2-age-card">
+                <span class="emoji">&#x1F9D1;</span>
+                <h3>Tweens</h3>
+                <span class="age-range" style="color: var(--v2-indigo);">Ages 11-14</span>
+                <span class="item-count">2,800+ items</span>
+            </div>
+            <div class="v2-age-card">
+                <span class="emoji">&#x1F469;&#x200D;&#x1F393;</span>
+                <h3>Teens</h3>
+                <span class="age-range" style="color: var(--v2-pink);">Ages 15-18</span>
+                <span class="item-count">4,100+ items</span>
+            </div>
+            <div class="v2-age-card">
+                <span class="emoji">&#x1F393;</span>
+                <h3>College</h3>
+                <span class="age-range" style="color: var(--v2-green);">Ages 18-22</span>
+                <span class="item-count">5,600+ items</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== 7. TRENDING NOW ========== -->
+<section class="v2-trending v2-section">
+    <div class="v2-container">
+        <div class="v2-flex-between" style="margin-bottom: 32px;">
+            <div>
+                <h2 class="v2-heading-md">Trending Now</h2>
+                <p class="v2-body" style="color: var(--v2-text-muted); margin-top: 4px;">Most loved products this week</p>
+            </div>
+            <a href="#" class="v2-see-all">
+                See All
+                <i data-lucide="arrow-right" class="v2-icon-sm"></i>
+            </a>
+        </div>
+        <div class="v2-product-grid" id="trending-grid">
+            <!-- Rendered by JS -->
+        </div>
+    </div>
+</section>
+
+<!-- ========== 8. STUDENT ZONE ========== -->
+<section class="v2-student-zone">
+    <div class="content">
+        <div class="v2-student-badge">
+            <i data-lucide="graduation-cap" class="v2-icon-sm"></i>
+            Student Zone
+        </div>
+        <h2 class="v2-heading-lg">Exclusive Student Deals &amp; Essentials</h2>
+        <p>Verify your .edu email to unlock student-only discounts on textbooks, tech, dorm essentials, and more. Save up to 40% every semester.</p>
+        <a href="#" class="v2-btn v2-btn-white v2-btn-lg" style="width: fit-content;">
+            <i data-lucide="badge-check" class="v2-btn-icon"></i>
+            Verify Student Status
+        </a>
+    </div>
+    <div class="v2-student-features">
+        <div class="v2-student-feat">
+            <i data-lucide="book-open" class="v2-icon-lg"></i>
+            <div>
+                <h4>Textbooks &amp; Supplies</h4>
+                <p>Up to 30% off on course materials</p>
+            </div>
+        </div>
+        <div class="v2-student-feat">
+            <i data-lucide="lamp-desk" class="v2-icon-lg"></i>
+            <div>
+                <h4>Dorm Essentials</h4>
+                <p>Everything for your home away from home</p>
+            </div>
+        </div>
+        <div class="v2-student-feat">
+            <i data-lucide="laptop" class="v2-icon-lg"></i>
+            <div>
+                <h4>Tech &amp; Gadgets</h4>
+                <p>Student pricing on electronics</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== 9. TESTIMONIALS ========== -->
+<section class="v2-testimonials v2-section">
+    <div class="v2-container">
+        <div class="v2-section-header">
+            <h2 class="v2-heading-md">What Our Community Says</h2>
+            <p>Real reviews from real families</p>
+        </div>
+        <div class="v2-test-cards">
+            <div class="v2-test-card" style="background: #FFF9F0;">
+                <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p class="quote">"KidCart has completely changed how I shop for my three kids. The age-based recommendations are spot on, and the growth tracking saves me from buying the wrong sizes!"</p>
+                <div class="reviewer">
+                    <div class="avatar" style="background: var(--v2-primary);"></div>
+                    <div>
+                        <div class="reviewer-name">Sarah M.</div>
+                        <div class="reviewer-desc">Parent of 3 kids</div>
+                    </div>
+                </div>
+            </div>
+            <div class="v2-test-card" style="background: #F0F4FF;">
+                <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p class="quote">"The student discounts are insane! I saved over $200 on textbooks this semester alone. Plus the dorm essentials section had everything I needed for move-in day."</p>
+                <div class="reviewer">
+                    <div class="avatar" style="background: var(--v2-indigo);"></div>
+                    <div>
+                        <div class="reviewer-name">Jake R.</div>
+                        <div class="reviewer-desc">College Student, NYU</div>
+                    </div>
+                </div>
+            </div>
+            <div class="v2-test-card" style="background: #F0FFF4;">
+                <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                <p class="quote">"I love that everything is COPPA compliant. As a parent, knowing my kids' data is safe while they browse age-appropriate products gives me total peace of mind."</p>
+                <div class="reviewer">
+                    <div class="avatar" style="background: var(--v2-green);"></div>
+                    <div>
+                        <div class="reviewer-name">Maria L.</div>
+                        <div class="reviewer-desc">Parent &amp; Teacher</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== 10. FOOTER ========== -->
+<footer class="v2-footer">
+    <div class="v2-footer-top">
+        <div class="v2-footer-brand">
+            <div class="logo">
+                <i data-lucide="shopping-bag" class="v2-icon-lg"></i>
+                <span>KidCart</span>
+            </div>
+            <p>The trusted shopping destination for families. Age-appropriate products, child-safe experience, and parent-approved quality from ages 3 to 22.</p>
+        </div>
+        <div class="v2-footer-col">
+            <h4>Shop</h4>
+            <a href="#">All Products</a>
+            <a href="#">New Arrivals</a>
+            <a href="#">Best Sellers</a>
+            <a href="#">Deals &amp; Offers</a>
+            <a href="#">Gift Cards</a>
+        </div>
+        <div class="v2-footer-col">
+            <h4>Parents</h4>
+            <a href="#">Growth Tracker</a>
+            <a href="#">Size Guide</a>
+            <a href="#">Parental Controls</a>
+            <a href="#">Safety Standards</a>
+            <a href="#">Multi-Child Profiles</a>
+        </div>
+        <div class="v2-footer-col">
+            <h4>Students</h4>
+            <a href="#">Student Verification</a>
+            <a href="#">Textbook Deals</a>
+            <a href="#">Dorm Essentials</a>
+            <a href="#">Campus Collections</a>
+        </div>
+        <div class="v2-footer-col">
+            <h4>Support</h4>
+            <a href="#">Help Center</a>
+            <a href="#">Shipping &amp; Returns</a>
+            <a href="#">Contact Us</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+        </div>
+    </div>
+    <div class="v2-footer-divider"></div>
+    <div class="v2-footer-bottom">
+        <p>&copy; 2026 KidCart. COPPA Compliant. All rights reserved.</p>
+        <div class="v2-footer-payments">
+            <span>Visa</span>
+            <span>Mastercard</span>
+            <span>PayPal</span>
+            <span>Apple Pay</span>
+            <span>Google Pay</span>
+        </div>
+    </div>
+</footer>
+
+<!-- ========== SCRIPTS ========== -->
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>
+// Featured products (from allProducts in app.js)
+const featuredProducts = [
+    { id: 1, name: 'Rainbow Gel Pen Set (12 Colors)', desc: 'Vibrant 12-color gel pen set for creative kids', price: 249, originalPrice: 399, rating: 4.7, reviews: 234, sku: 'STN-PEN-001', ageGroup: 2, emoji: '🖊️', bgColor: '#FFF0F0' },
+    { id: 2, name: 'Harry Potter Complete Collection', desc: 'Complete Harry Potter series box set', price: 2499, originalPrice: 3499, rating: 5.0, reviews: 892, sku: 'BK-STR-003', ageGroup: 3, emoji: '📖', bgColor: '#F0F4FF' },
+    { id: 3, name: 'STEM Building Blocks (150 pcs)', desc: 'Educational building blocks for future engineers', price: 1499, originalPrice: 1999, rating: 4.9, reviews: 345, sku: 'GFT-STM-001', ageGroup: 2, emoji: '🧩', bgColor: '#FFF8E7' },
+    { id: 4, name: 'Dinosaur Adventure Backpack', desc: 'Fun 3D dinosaur bag for little explorers', price: 899, originalPrice: 1199, rating: 4.7, reviews: 234, sku: 'BAG-SCH-001', ageGroup: 1, emoji: '🎒', bgColor: '#F0FFF4' },
+];
+
+// Render stars
+function renderStars(rating) {
+    const full = Math.floor(rating);
+    const half = rating % 1 >= 0.5 ? 1 : 0;
+    let stars = '';
+    for (let i = 0; i < full; i++) stars += '&#9733;';
+    for (let i = 0; i < half; i++) stars += '&#9734;';
+    return stars;
+}
+
+// Render trending products
+function renderTrending() {
+    const grid = document.getElementById('trending-grid');
+    if (!grid) return;
+
+    grid.innerHTML = featuredProducts.map(p => {
+        const discount = p.originalPrice ? Math.round((1 - p.price / p.originalPrice) * 100) : 0;
+        return `
+            <div class="v2-product-card">
+                <div class="v2-product-img" style="background: ${p.bgColor};">
+                    <span style="font-size: 64px;">${p.emoji}</span>
+                    ${discount > 0 ? `<span class="badge">${discount}% OFF</span>` : ''}
+                    <button class="wishlist-btn" aria-label="Add to wishlist">
+                        <i data-lucide="heart" class="v2-icon-sm"></i>
+                    </button>
+                </div>
+                <div class="v2-product-info">
+                    <h3>${p.name}</h3>
+                    <p class="desc">${p.desc}</p>
+                    <div class="rating">
+                        <span class="stars">${renderStars(p.rating)}</span>
+                        <span>${p.rating} (${p.reviews})</span>
+                    </div>
+                    <div class="v2-flex v2-gap-8" style="align-items: baseline;">
+                        <span class="price">&#8377;${p.price}</span>
+                        ${p.originalPrice ? `<span class="original-price">&#8377;${p.originalPrice}</span>` : ''}
+                    </div>
+                    <button class="add-cart-btn">
+                        <i data-lucide="shopping-cart" class="v2-icon-sm" style="display: inline; vertical-align: middle; margin-right: 4px;"></i>
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+        `;
+    }).join('');
+
+    // Re-initialize Lucide icons for dynamically added elements
+    lucide.createIcons();
+}
+
+// User type tab switching
+function initUserSwitcher() {
+    const tabs = document.querySelectorAll('.v2-user-tab');
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            tabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+        });
+    });
+}
+
+// Initialize everything
+document.addEventListener('DOMContentLoaded', () => {
+    lucide.createIcons();
+    initUserSwitcher();
+    renderTrending();
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+namespace KidCart.Domain.Entities;
+
+public class ProductImage : BaseEntity
+{
+    public Guid ProductId { get; private set; }
+    public Product Product { get; private set; } = null!;
+    public string Url { get; private set; } = null!;
+    public string? AltText { get; private set; }
+    public int SortOrder { get; private set; }
+    public bool IsPrimary { get; private set; }
+
+    private ProductImage() { } // EF Core
+
+    public static ProductImage Create(Guid productId, string url, string? altText, int sortOrder, bool isPrimary = false)
+    {
+        return new ProductImage
+        {
+            ProductId = productId,
+            Url = url,
+            AltText = altText,
+            SortOrder = sortOrder,
+            IsPrimary = isPrimary
+        };
+    }
+}
